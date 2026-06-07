@@ -162,7 +162,7 @@
 @media (max-width: 768px) {
     .slideshow-text {
         position: absolute;
-        top: 15%;
+        top: 85%;
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
