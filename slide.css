@@ -1,0 +1,257 @@
+/* Slideshow Container - Fixed size container */
+.slideshow-container {
+    width: 95%;
+    height: 75vh;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    background-color: #333;
+    margin-bottom: 40px;
+    border-radius: 25px;
+}
+
+/* Slideshow - Removed animation, we'll use CSS animation but with proper sizing */
+.slideshow {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Each image takes full container width */
+.slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* This makes image cover area without distortion */
+    object-position: center;  /* Centers the image */
+    flex-shrink: 0;
+    display: block;
+}
+
+/* Container for the sliding animation */
+.slideshow-container {
+    position: relative;
+}
+
+
+
+
+
+.slideshow {
+    display: flex;
+    width: 700%; /* 7 images × 100% */
+    height: 100%;
+    animation: slideImages 30s infinite; /* Slower total animation */
+    animation-timing-function: ease-in-out;
+}
+
+/* Keyframes - More time for reverse animation */
+@keyframes slideImages {
+    0% {
+        transform: translateX(0);
+    }
+    8% {
+        transform: translateX(0);
+    }
+    12% {
+        transform: translateX(-14.2857%);
+    }
+    22% {
+        transform: translateX(-14.2857%);
+    }
+    26% {
+        transform: translateX(-28.5714%);
+    }
+    36% {
+        transform: translateX(-28.5714%);
+    }
+    40% {
+        transform: translateX(-42.8571%);
+    }
+    50% {
+        transform: translateX(-42.8571%);
+    }
+    54% {
+        transform: translateX(-57.1428%);
+    }
+    64% {
+        transform: translateX(-57.1428%);
+    }
+    68% {
+        transform: translateX(-71.4285%);
+    }
+    78% {
+        transform: translateX(-71.4285%);
+    }
+    82% {
+        transform: translateX(-85.7142%);
+    }
+    90% {
+        transform: translateX(-85.7142%);
+    }
+    100% {
+        transform: translateX(0); /* The reverse takes 10% of the time (slower) */
+    }
+}
+
+
+
+
+
+
+
+
+/* Make sure images are perfectly sized */
+.slideshow img {
+    width: 14.2857%; /* Each image takes 1/7th of the 700% wrapper */
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0;
+}
+
+/* Remove any default margins/padding */
+.slideshow {
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow img {
+    margin: 0;
+    padding: 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .slideshow-container {
+        height: 60vh;
+    }
+    
+    .slideshow {
+        animation: slideImagesMobile 25s infinite;
+    }
+    
+    @keyframes slideImagesMobile {
+        0%, 12% {
+            transform: translateX(0);
+        }
+        14%, 26% {
+            transform: translateX(-14.2857%);
+        }
+        28%, 40% {
+            transform: translateX(-28.5714%);
+        }
+        42%, 54% {
+            transform: translateX(-42.8571%);
+        }
+        56%, 68% {
+            transform: translateX(-57.1428%);
+        }
+        70%, 82% {
+            transform: translateX(-71.4285%);
+        }
+        84%, 96% {
+            transform: translateX(-85.7142%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+}
+
+/* Mobile Responsive - Text above, Search button below */
+@media (max-width: 768px) {
+    .slideshow-text {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        padding: 10px;
+    }
+    
+    .slideshow-text p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .first-part {
+        font-size: 18px;
+        display: block;
+        margin-bottom: 8px;
+    }
+    
+    .second-part {
+        font-size: 14px;
+        display: block;
+    }
+    
+    /* Search button positioning below text */
+    .search-bar-container {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        z-index: 10;
+    }
+    
+    .search-bar {
+        width: 100%;
+        height: 50px;
+        padding: 12px 20px;
+        font-size: 16px;
+        border: 2px solid #ddd;
+        border-radius: 30px;
+        box-sizing: border-box;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .search-bar-container button {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 80px;
+        height: 40px;
+        background-color: #ff1e3b;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    
+    .search-bar-container button:hover {
+        background-color: #0056b3;
+    }
+}
+
+/* For very small phones */
+@media (max-width: 480px) {
+    .slideshow-text {
+        top: 10%;
+    }
+    
+    .first-part {
+        font-size: 16px;
+    }
+    
+    .second-part {
+        font-size: 12px;
+    }
+    
+    .search-bar-container {
+        top: 35%;
+    }
+    
+    .search-bar {
+        height: 45px;
+        font-size: 14px;
+    }
+    
+    .search-bar-container button {
+        width: 70px;
+        height: 35px;
+        font-size: 12px;
+    }
+}
